@@ -16,5 +16,12 @@ agent any
       bat "mvn package"
      }
    }
+   stage("Consolidated Result"){
+    steps{
+	 input('Do you want to capture results')
+	 junit('**/target/surefire-reports/Test-*.xml')
+	 archive 'target/*.jar'
+	}
+   }
  }
 }
