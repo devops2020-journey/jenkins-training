@@ -19,7 +19,7 @@ agent any
    stage("Consolidated Result"){
     steps{
 	 input('Do you want to capture results')
-	 junit('**/target/surefire-reports/Test-*.xml')
+	 junit('${WORKSPACE}/test-results/*.xml')
 	 archive 'target/*.jar'
 	}
    }
